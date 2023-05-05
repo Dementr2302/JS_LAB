@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../../static/main/CSS/js_full.css">
+    <script src="../../../static/main/JS/js_full.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABS_JS</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<h1>Список заданий</h1>
+
+<!--задание 1 -->
+<div class="top-div" onclick="setDate(); toggleSection('listDiv');">
+    <p class="top-div-content">Задание 1</p>
+</div>
+<div class="listDiv" style="display:none">
+    <p id="data_label" class="content-p"></p>
+</div>
+
+<!--задание 2-->
+<div class="top-div" onclick="renderCalendar(); toggleSection('calendar');">
+    <p class="top-div-content">Задание 2</p>
+</div>
+<div class="calendar" style="display:none">
+    <p id="calendar" class="content-p"></p>
+    <div class="calendar">
+        <div class="calendar-header">
+            <div class="calendar-prev">
+                <button>&lt;</button>
+            </div>
+            <div class="calendar-title"></div>
+            <div class="calendar-next">
+                <button>&gt;</button>
+            </div>
+        </div>
+        <table class="calendar-table">
+            <thead>
+            <tr>
+                <th>Пн</th>
+                <th>Вт</th>
+                <th>Ср</th>
+                <th>Чт</th>
+                <th>Пт</th>
+                <th class="weekend">Сб</th>
+                <th class="weekend">Вс</th>
+            </tr>
+            </thead>
+            <tbody class="calendar-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<!--задание 3-->
+<div class="top-div" onclick="task3('task3-content'); toggleSection('task3');">
+    <p class="top-div-content">Задание 3</p>
+</div>
+<div class="task3" style="display:none">
+    <div id="parent">
+        <p>Текст 1</p>
+        <p>Текст 2</p>
+        <div>
+            <p>Текст 3</p>
+        </div>
+        <p>Текст 4</p>
+        <p>Текст 5</p>
+    </div>
+    <p id="task3-content" class="content-p"></p>
+</div>
+<script>
+    window.onload = function () {
+        task4();
+    };
+</script>
+
+<!--задание 4-->
+<div class="top-div" onclick="toggleSection('task4');">
+    <p class="top-div-content">Задание 4</p>
+</div>
+<div class="task4" style="display:none;">
+    <table id="table">
+        <tr>
+            <td class="block"></td>
+            <td class="block"></td>
+            <td class="block"></td>
+            <td class="block"></td>
+        </tr>
+        <tr>
+            <td class="block"></td>
+            <td class="block"></td>
+            <td class="block"></td>
+            <td class="block"></td>
+        </tr>
+        <tr>
+            <td class="block"></td>
+            <td class="block"></td>
+            <td class="block"></td>
+            <td class="block"></td>
+        </tr>
+    </table>
+</div>
+
+
+<!--задание 5-->
+<div class="top-div" onclick="toggleSection('myList');">
+    <p class="top-div-content">Задание 5</p>
+</div>
+<div class="myList" style="display:none">
+    <div class="drop-section" id="myList">
+        <h1>Список элементов</h1>
+        <ul>
+            <li>Элемент 1
+                <ul>
+                    <li>Подэлемент 1</li>
+                    <li>Подэлемент 2</li>
+                    <li>Подэлемент 3</li>
+                    <li>Подэлемент 4</li>
+                </ul>
+            </li>
+            <li>
+                Элемент 2
+                <ul>
+                    <li>Подэлемент 1</li>
+                    <li>Подэлемент 2</li>
+                    <li>Подэлемент 3</li>
+                </ul>
+            </li>
+            <li>Элемент 3</li>
+            <li>
+                Элемент 4
+                <ul>
+                    <li>Подэлемент 1</li>
+                    <li>Подэлемент 2</li>
+                </ul>
+            </li>
+            <li>Элемент 5</li>
+        </ul>
+        <button onclick="createLi()"
+                style="font-size: 16px; background-color: #13ba00; color: white; padding: 10px 20px; border-radius: 8px;">
+            Добавить элемент
+        </button>
+        <button onclick="deleteLi()"
+                style="font-size: 16px; background-color: #f44336; color: white; padding: 10px 20px; border-radius: 8px;">
+            Удалить элемент
+        </button>
+    </div>
+</div>
+
+
+<!--задание 6-->
+<div class="top-div" onclick="task6('myArray'); toggleSection('toggleContent6');">
+    <p class="top-div-content">Задание 6</p>
+</div>
+<div id="myArray" style="display:none;">
+    <div class="task6">
+        <img id="MyImage1" src="https://picsum.photos/id/233/200/300" alt="">
+        <img id="MyImage2" src="https://picsum.photos/id/232/200/300" alt="">
+        <img id="MyImage3" src="https://picsum.photos/id/231/200/300" alt="">
+    </div>
+</div>
+
+
+<!--задание 7-->
+<div class="top-div" onclick="task7(); toggleSection('task7');">
+    <p class="top-div-content">Задание 7</p>
+</div>
+<div class="task7" style="display:none">
+    <div class="drop-section">
+        <ul id="menu">
+
+        </ul>
+    </div>
+</div>
+
+
+<!--задание 8-->
+<div class="top-div" onclick="task8(); toggleSection('task8');">
+    <p class="top-div-content">Задание 8</p>
+</div>
+
+<div class="task8" style="display:none">
+    <div class="drop-section">
+        <div id="image-container">
+            <img id="smooth-image" src="https://picsum.photos/200" alt="Your image"
+                 style="position: absolute; z-index: 1; width: 100%; height: 100%;">
+            <p style="font-size: 32px; color: red">zachet</p>
+        </div>
+    </div>
+</div>
+
+
+<!--задание 9-->
+<div class="top-div" onclick="toggleSection('task9');">
+    <p class="top-div-content">Задание 9</p>
+</div>
+
+<div class="task9" style="display:none">
+    <div class="drop-section">
+        <form id="registration-form" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="task9-email" name="email" required>
+            <br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="task9-password" name="password" required>
+            <br><br>
+            <input class="add-list-element" type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+
+<!--задание 10-->
+<div class="top-div" onclick="toggleSection('task10');">
+    <p class="top-div-content">Задание 10</p>
+</div>
+
+<div class="task10" style="display:none">
+    <div class="drop-section">
+        <form id="task10-form" method="post">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" oninput="validateEmail()">
+            <label id="emailError" style="color:red"></label>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" oninput="validatePasswords()">
+            <br>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" name="confirm-password" id="confirm-password" oninput="validatePasswords()">
+            <label id="passwordError" style="color:red"></label>
+            <br>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" oninput="validatePhone()">
+            <label id="phoneError" style="color:red"></label>
+            <br>
+            <label for="date">Date:</label>
+            <input type="text" name="date" id="date" oninput="validateDate()">
+            <label id="dateError" style="color:red"></label>
+            <br>
+            <label for="full-name">Full Name (Optional):</label>
+            <input type="text" name="full-name" id="full-name">
+            <br>
+            <label for="faculty">Faculty (Optional):</label>
+            <input type="text" name="faculty" id="faculty">
+            <br>
+            <label for="department">Department (Optional):</label>
+            <input type="text" name="department" id="department">
+            <br><br>
+            <p>rating</p>
+            <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> 1</label>
+            <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> 2</label>
+            <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> 3</label>
+            <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> 4</label>
+            <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> 5</label>
+            <br><br><br>
+            <button id="task10-submit-button" class="add-list-element" type="submit" disabled>Submit</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
